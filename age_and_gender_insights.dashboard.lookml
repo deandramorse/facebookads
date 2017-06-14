@@ -87,6 +87,9 @@
     column_limit: 50
     show_single_value_title: true
     show_comparison: false
+    listen:
+      age_group: ad_insights_by_age_and_gender.age
+      gender: ad_insights_by_age_and_gender.gender
 
   - name: performance_by_age
     title: Performance by age group
