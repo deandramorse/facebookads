@@ -118,6 +118,7 @@
     - table_calculation: cost_per_action
       label: cost_per_action
       expression: ${ad_insights.total_spend} / ${ad_insights.total_actions}
+      value_format_name: usd
     sorts: [campaigns.name]
     limit: 5000
     show_view_names: false
