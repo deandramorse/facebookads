@@ -103,6 +103,9 @@
     sorts: [ad_insights_by_age_and_gender.avg_cpc desc]
     limit: 5000
     column_limit: 50
+    listen:
+      age_group: ad_insights_by_age_and_gender.age
+      gender: ad_insights_by_age_and_gender.gender
     stacking: ''
     colors: ['#FFCC00', '#1E2023', '#3399CC', '#CC3399', '#66CC66', '#999999', '#FF4E00', '#A2ECBA', '#9932CC', '#0000CD']
     show_value_labels: false
@@ -122,6 +125,8 @@
     y_axis_scale_mode: linear
     show_null_labels: false
 
+
+
   - name: reach
     title: Reach
     type: single_value
@@ -133,6 +138,9 @@
     column_limit: 50
     show_single_value_title: true
     show_comparison: false
+    listen:
+      age_group: ad_insights_by_age_and_gender.age
+      gender: ad_insights_by_age_and_gender.gender
 
   - name: impressions
     title: Impressions
@@ -145,6 +153,9 @@
     column_limit: 50
     show_single_value_title: true
     show_comparison: false
+    listen:
+      age_group: ad_insights_by_age_and_gender.age
+      gender: ad_insights_by_age_and_gender.gender
 
   - name: reach_by_age
     title: Reach by age group
@@ -159,6 +170,9 @@
     value_labels: legend
     colors: ['#FFCC00', '#1E2023', '#3399CC', '#CC3399', '#66CC66', '#999999', '#FF4E00', '#A2ECBA', '#9932CC', '#0000CD']
     show_view_names: true
+    listen:
+      gender: ad_insights_by_age_and_gender.gender
+
 
   - name: impressions_by_age
     title: Impressions by age group
@@ -170,6 +184,8 @@
     sorts: [ad_insights_by_age_and_gender.total_impressions desc]
     limit: 5000
     column_limit: 50
+    listen:
+      gender: ad_insights_by_age_and_gender.gender
     value_labels: legend
     colors: ['#FFCC00', '#1E2023', '#3399CC', '#CC3399', '#66CC66', '#999999', '#FF4E00', '#A2ECBA', '#9932CC', '#0000CD']
     show_view_names: true
@@ -185,6 +201,9 @@
     column_limit: 50
     show_single_value_title: true
     show_comparison: false
+    listen:
+      age_group: ad_insights_by_age_and_gender.age
+      gender: ad_insights_by_age_and_gender.gender
 
   - name: spend
     title: Spend
@@ -197,6 +216,9 @@
     column_limit: 50
     show_single_value_title: true
     show_comparison: false
+    listen:
+      age_group: ad_insights_by_age_and_gender.age
+      gender: ad_insights_by_age_and_gender.gender
 
   - name: clicks_by_age
     title: Clicks by age group
@@ -208,6 +230,8 @@
     sorts: [ad_insights_by_age_and_gender.total_clicks desc 0]
     limit: 5000
     column_limit: 50
+    listen:
+      gender: ad_insights_by_age_and_gender.gender
     value_labels: legend
     colors: ['#FFCC00', '#1E2023', '#3399CC', '#CC3399', '#66CC66', '#999999', '#FF4E00', '#A2ECBA', '#9932CC', '#0000CD']
     show_view_names: true
@@ -220,6 +244,8 @@
     dimensions: [ad_insights_by_age_and_gender.age]
     measures: [ad_insights_by_age_and_gender.total_spend]
     sorts: [ad_insights_by_age_and_gender.total_spend desc 0]
+    listen:
+      gender: ad_insights_by_age_and_gender.gender
     limit: 5000
     column_limit: 50
     value_labels: legend
