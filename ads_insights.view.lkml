@@ -195,7 +195,7 @@ view: ad_insights {
       sql: ${TABLE}.total_action_value ;;
     }
 
-    dimension: total_actions {
+    dimension: total_actions_dim {
       type: number
       sql: ${TABLE}.total_actions ;;
     }
@@ -277,5 +277,9 @@ view: ad_insights {
     sql: ${TABLE}.cost_per_inline_link_click ;;
   }
 
+  measure: total_actions {
+    type: sum
+    sql: ${TABLE}.total_actions ;;
+  }
 
 }
