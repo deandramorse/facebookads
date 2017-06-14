@@ -259,6 +259,7 @@ view: ad_insights {
   measure: avg_ctr {
     type: average
     sql: ${TABLE}.ctr ;;
+    value_format_name: usd
   }
 
   measure: avg_cpc {
@@ -275,6 +276,7 @@ view: ad_insights {
   measure: avg_cost_per_inline_link_click {
     type: average
     sql: ${TABLE}.cost_per_inline_link_click ;;
+    value_format_name: usd
   }
 
   measure: total_actions {
@@ -282,4 +284,9 @@ view: ad_insights {
     sql: ${TABLE}.total_actions ;;
   }
 
+  measure: total_value{
+    type: sum
+    sql: ${TABLE}.total_action_value ;;
+    value_format_name: usd
+    }
 }

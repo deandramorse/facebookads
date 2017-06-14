@@ -201,21 +201,25 @@ view: ad_insights_by_placement_and_device {
   measure: avg_cpc {
     type: average
     sql: ${TABLE}.cpc ;;
+    value_format_name: usd
   }
 
   measure: avg_cpm {
     type: average
     sql: ${TABLE}.cpm ;;
+    value_format_name: usd
   }
 
   measure: avg_cpp {
     type: average
     sql: ${TABLE}.cpp ;;
+    value_format_name: usd
   }
 
   measure: avg_ctr {
     type: average
     sql: ${TABLE}.ctr ;;
+    value_format_name: usd
   }
 
   measure: avg_frequency {
@@ -238,11 +242,18 @@ view: ad_insights_by_placement_and_device {
     type: sum
     sql: ${TABLE}.spend ;;
     drill_fields: [impression_device, placement]
+    value_format_name: usd
   }
 
   measure: total_actions {
     type: sum
     sql: ${TABLE}.total_actions ;;
     drill_fields: [impression_device, placement]
+  }
+
+  measure: total_value{
+    type: sum
+    sql: ${TABLE}.total_action_value ;;
+    value_format_name: usd
   }
 }
