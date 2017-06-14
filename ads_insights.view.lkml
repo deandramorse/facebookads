@@ -1,124 +1,214 @@
 view: ad_insights {
-  sql_table_name: looker_facebook.facebook_ads_insights_x ;;
-  # API documentation: https://developers.facebook.com/docs/marketing-api/insights/fields/v2.6
+    sql_table_name: fb.insight ;;
 
-  ## STANDARD FIELDS
+   dimension: ad_id {
+      type: string
+      sql: ${TABLE}.ad_id ;;
+    }
 
-  dimension: account_id {
-    type: string
-    sql: ${TABLE}.account_id ;;
-  }
+    dimension: ad_name {
+      type: string
+      sql: ${TABLE}.ad_name ;;
+    }
 
-  dimension: ad_id {
-    type: string
-    sql: ${TABLE}.ad_id ;;
-  }
+    dimension: adset_id {
+      type: number
+      sql: ${TABLE}.adset_id ;;
+    }
 
-  dimension: adset_id {
-    type: string
-    sql: ${TABLE}.adset_id ;;
-  }
+    dimension: adset_name {
+      type: string
+      sql: ${TABLE}.adset_name ;;
+    }
 
-  dimension: campaign_id {
-    type: string
-    sql: ${TABLE}.campaign_id ;;
-  }
+    dimension: app_store_clicks {
+      type: number
+      sql: ${TABLE}.app_store_clicks ;;
+    }
 
-  dimension: campaign_name {
-    type: string
-    sql: ${campaigns.name} ;;
-  }
+    dimension: call_to_action_clicks {
+      type: number
+      sql: ${TABLE}.call_to_action_clicks ;;
+    }
 
-  dimension: clicks {
-    type: number
-    sql: ${TABLE}.clicks ;;
-  }
+    dimension: campaign_id {
+      type: number
+      sql: ${TABLE}.campaign_id ;;
+    }
 
-  dimension: cost_per_total_action {
-    type: number
-    sql: ${TABLE}.cost_per_total_action ;;
-  }
+    dimension: campaign_name {
+      type: string
+      sql: ${TABLE}.campaign_name ;;
+    }
 
-  dimension: cpc {
-    type: number
-    sql: ${TABLE}.cpc ;;
-  }
+    dimension: canvas_avg_view_percent {
+      type: number
+      sql: ${TABLE}.canvas_avg_view_percent ;;
+    }
 
-  dimension: cpm {
-    type: number
-    sql: ${TABLE}.cpm ;;
-  }
+    dimension: canvas_avg_view_time {
+      type: number
+      sql: ${TABLE}.canvas_avg_view_time ;;
+    }
 
-  dimension: cpp {
-    type: number
-    sql: ${TABLE}.cpp ;;
-  }
+    dimension: clicks {
+      type: number
+      sql: ${TABLE}.clicks ;;
+    }
 
-  dimension: ctr {
-    type: number
-    sql: ${TABLE}.ctr ;;
-  }
+    dimension: cost_per_inline_link_click {
+      type: number
+      sql: ${TABLE}.cost_per_inline_link_click ;;
+    }
 
-  dimension_group: date_start {
-    type: time
-    timeframes: [time, date, week, month]
-    sql: ${TABLE}.date_start ;;
-  }
+    dimension: cost_per_inline_post_engagement {
+      type: number
+      sql: ${TABLE}.cost_per_inline_post_engagement ;;
+    }
 
-  dimension_group: date_stop {
-    type: time
-    timeframes: [time, date, week, month]
-    sql: ${TABLE}.date_stop ;;
-  }
+    dimension: cost_per_total_action {
+      type: number
+      sql: ${TABLE}.cost_per_total_action ;;
+    }
 
-  dimension: frequency {
-    type: number
-    sql: ${TABLE}.frequency ;;
-  }
+    dimension: cpc {
+      type: number
+      sql: ${TABLE}.cpc ;;
+    }
 
-  dimension: impressions {
-    type: number
-    sql: ${TABLE}.impressions ;;
-  }
+    dimension: cpm {
+      type: number
+      sql: ${TABLE}.cpm ;;
+    }
 
-  dimension: reach {
-    type: number
-    sql: ${TABLE}.reach ;;
-  }
+    dimension: cpp {
+      type: number
+      sql: ${TABLE}.cpp ;;
+    }
 
-  dimension: spend {
-    type: number
-    sql: ${TABLE}.spend ;;
-    value_format_name: usd
-  }
+    dimension: ctr {
+      type: number
+      sql: ${TABLE}.ctr ;;
+    }
 
-  dimension: total_action_value {
-    type: number
-    sql: ${TABLE}.total_action_value ;;
-  }
+    dimension_group: date {
+      type: time
+      timeframes: [
+        raw,
+        date,
+        week,
+        month,
+        quarter,
+        year
+      ]
+      convert_tz: no
+      sql: ${TABLE}.date ;;
+    }
 
-  dimension: actions {
-    type: number
-    sql: ${TABLE}.total_actions ;;
-  }
+    dimension: deeplink_clicks {
+      type: number
+      sql: ${TABLE}.deeplink_clicks ;;
+    }
 
-  dimension: website_clicks {
-    type: number
-    sql: ${TABLE}.website_clicks ;;
-  }
+    dimension: frequency {
+      type: number
+      sql: ${TABLE}.frequency ;;
+    }
 
-  ## AGGREGATED MEASURES
+    dimension: impressions {
+      type: number
+      sql: ${TABLE}.impressions ;;
+    }
 
-  measure: count {
-    type: count
-    drill_fields: []
-  }
+    dimension: inline_link_click_ctr {
+      type: number
+      sql: ${TABLE}.inline_link_click_ctr ;;
+    }
 
-  measure: total_actions {
-    type: sum
-    sql: ${TABLE}.total_actions ;;
-    drill_fields: [campaign_id]
-  }
+    dimension: inline_link_clicks {
+      type: number
+      sql: ${TABLE}.inline_link_clicks ;;
+    }
+
+    dimension: inline_post_engagement {
+      type: number
+      sql: ${TABLE}.inline_post_engagement ;;
+    }
+
+    dimension: newsfeed_avg_position {
+      type: number
+      sql: ${TABLE}.newsfeed_avg_position ;;
+    }
+
+    dimension: newsfeed_clicks {
+      type: number
+      sql: ${TABLE}.newsfeed_clicks ;;
+    }
+
+    dimension: newsfeed_impressions {
+      type: number
+      sql: ${TABLE}.newsfeed_impressions ;;
+    }
+
+    dimension: objective {
+      type: string
+      sql: ${TABLE}.objective ;;
+    }
+
+    dimension: reach {
+      type: number
+      sql: ${TABLE}.reach ;;
+    }
+
+    dimension: relevance_score {
+      type: string
+      sql: ${TABLE}.relevance_score ;;
+    }
+
+    dimension: social_clicks {
+      type: number
+      sql: ${TABLE}.social_clicks ;;
+    }
+
+    dimension: social_impressions {
+      type: number
+      sql: ${TABLE}.social_impressions ;;
+    }
+
+    dimension: social_reach {
+      type: number
+      sql: ${TABLE}.social_reach ;;
+    }
+
+    dimension: social_spend {
+      type: number
+      sql: ${TABLE}.social_spend ;;
+    }
+
+    dimension: spend {
+      type: number
+      sql: ${TABLE}.spend ;;
+    }
+
+    dimension: total_action_value {
+      type: number
+      sql: ${TABLE}.total_action_value ;;
+    }
+
+    dimension: total_actions {
+      type: number
+      sql: ${TABLE}.total_actions ;;
+    }
+
+    dimension: unique_clicks {
+      type: number
+      sql: ${TABLE}.unique_clicks ;;
+    }
+
+    dimension: website_clicks {
+      type: number
+      sql: ${TABLE}.website_clicks ;;
+    }
 
   measure: total_reach {
     type: sum
@@ -135,26 +225,16 @@ view: ad_insights {
     sql: ${TABLE}.impressions ;;
   }
 
-  measure: people_taking_action {
-    description: "The number of unique people who took an action such as liking your Page or installing your app as a result of your ad. For example, if the same person likes and comments on a post, they will be counted as 1 unique person."
-    type: sum
-    sql: ${TABLE}.total_unique_actions ;;
-  }
-
   measure: total_inline_link_clicks {
     type: sum
     sql: ${TABLE}.inline_link_clicks ;;
   }
-
-  #### NOTE: you will need to use the frequency column that appears in your dataset.
 
   measure: avg_frequency {
     description: "the average number of times your ad was served to each person"
     type: average
     sql: ${TABLE}.frequency ;;
   }
-
-  #### NOTE: you will need to use the cpm column that appears in your dataset.
 
   measure: avg_cpm {
     description: "The average cost you've paid to have 1,000 impressions on your ad."
@@ -163,8 +243,6 @@ view: ad_insights {
     value_format_name: usd
   }
 
-  #### NOTE: you will need to use the cpp column that appears in your dataset.
-
   measure: avg_cpp {
     description: "The average cost you've paid to have your ad served to 1,000 unique people."
     type: average
@@ -172,22 +250,16 @@ view: ad_insights {
     value_format_name: usd
   }
 
-  #### NOTE: you will need to use the spend column that appears in your dataset.
-
   measure: total_spend {
     type: sum
     sql: ${TABLE}.spend ;;
     value_format_name: usd
   }
 
-  #### NOTE: you will need to use the ctr column that appears in your dataset.
-
   measure: avg_ctr {
     type: average
     sql: ${TABLE}.ctr ;;
   }
-
-  #### NOTE: you will need to use the cpc column that appears in your dataset.
 
   measure: avg_cpc {
     type: average
@@ -195,151 +267,15 @@ view: ad_insights {
     value_format_name: usd
   }
 
-  #### NOTE: you will need to use the inline link click ctr column that appears in your dataset.
-
-  measure: avg_inline_link_click_ctr {
+ measure: avg_inline_link_click_ctr {
     type: average
     sql: ${TABLE}.inline_link_click_ctr ;;
   }
-
-  #### NOTE: you will need to use the cost per inline link click column that appears in your dataset.
 
   measure: avg_cost_per_inline_link_click {
     type: average
     sql: ${TABLE}.cost_per_inline_link_click ;;
   }
+
+
 }
-
-##########################################################################################################
-
-
-## FOR MORE GRANULAR ANALYSIS
-
-#   - dimension: app_store_clicks
-#     type: number
-#     sql: ${TABLE}.app_store_clicks
-#
-#   - dimension: call_to_action_clicks
-#     type: number
-#     sql: ${TABLE}.call_to_action_clicks
-#
-#   - dimension: canvas_avg_view_percent
-#     description: The average percentage of the Canvas seen
-#     type: number
-#     sql: ${TABLE}.canvas_avg_view_percent
-#
-#   - dimension: canvas_avg_view_time
-#     description: The average time spent in seconds, within a Canvas unit
-#     type: number
-#     sql: ${TABLE}.canvas_avg_view_time
-#
-#   - dimension: deeplink_clicks
-#     type: number
-#     sql: ${TABLE}.deeplink_clicks
-#
-#   - dimension: estimated_ad_recall_rate
-#     type: number
-#     sql: ${TABLE}.estimated_ad_recall_rate
-#
-#   - dimension: estimated_ad_recall_rate_lower_bound
-#     type: number
-#     sql: ${TABLE}.estimated_ad_recall_rate_lower_bound
-#
-#   - dimension: estimated_ad_recall_rate_upper_bound
-#     type: number
-#     sql: ${TABLE}.estimated_ad_recall_rate_upper_bound
-
-## UNIQUE AND INLINE FIELDS
-
-#   - dimension: cost_per_unique_click
-#     type: number
-#     sql: ${TABLE}."cost_per_unique_click#314b575e612d4acb829c87b1d81b7bbd"
-#
-#   - dimension: cost_per_inline_link_click
-#     type: number
-#     sql: ${TABLE}."cost_per_inline_link_click#01932ca7b21eb72c1e10d6cb906d6b36"
-#
-#   - dimension: cost_per_inline_post_engagement
-#     type: number
-#     sql: ${TABLE}."cost_per_inline_post_engagement#030e37f96d092f6c15fb7a41521aa227"
-#
-#   - dimension: cost_per_unique_inline_link_click
-#     type: number
-#     sql: ${TABLE}."cost_per_unique_inline_link_click#46c5d5a01cf35fb31482787435b028ff"
-#
-#   - dimension: inline_link_click_ctr2cf3b3cbfc8c2745f13ab21fdefd5ce7
-#     type: number
-#     sql: ${TABLE}."inline_link_click_ctr#2cf3b3cbfc8c2745f13ab21fdefd5ce7"
-#
-#   - dimension: inline_link_clicks
-#     type: number
-#     sql: ${TABLE}.inline_link_clicks
-#
-#   - dimension: inline_post_engagement
-#     type: number
-#     sql: ${TABLE}.inline_post_engagement
-#
-#   - dimension: relevance_score__negative_feedback
-#     type: string
-#     sql: ${TABLE}.relevance_score__negative_feedback
-#
-#   - dimension: relevance_score__positive_feedback
-#     type: string
-#     sql: ${TABLE}.relevance_score__positive_feedback
-#
-#   - dimension: relevance_score__score
-#     type: number
-#     sql: ${TABLE}.relevance_score__score
-#
-#   - dimension: relevance_score__status
-#     type: string
-#     sql: ${TABLE}.relevance_score__status
-#
-#   - dimension: social_clicks
-#     type: number
-#     sql: ${TABLE}.social_clicks
-#
-#   - dimension: social_impressions
-#     type: number
-#     sql: ${TABLE}.social_impressions
-#
-#   - dimension: social_reach
-#     type: number
-#     sql: ${TABLE}.social_reach
-
-#   - dimension: total_unique_actions
-#     description: The number of unique people who took an action such as liking your Page or installing your app as a result of your ad. For example, if the same person likes and comments on a post, they will be counted as 1 unique person.
-#     type: number
-#     sql: ${TABLE}.total_unique_actions
-#
-#   - dimension: unique_clicks
-#     type: number
-#     sql: ${TABLE}.unique_clicks
-#
-#   - dimension: unique_ctr
-#     type: number
-#     sql: ${TABLE}."unique_ctr#8eb4c1cfa3ad8ba37f49e372cf5d1cd3"
-#
-#   - dimension: unique_impressions
-#     type: number
-#     sql: ${TABLE}.unique_impressions
-#
-#   - dimension: unique_inline_link_click_ctr
-#     type: number
-#     sql: ${TABLE}."unique_inline_link_click_ctr#03ac8649f6f3371be49fa980213fe6cc"
-#
-#   - dimension: unique_inline_link_clicks
-#     type: number
-#     sql: ${TABLE}.unique_inline_link_clicks
-#
-#   - dimension: unique_link_clicks_ctr
-#     type: number
-#     sql: ${TABLE}."unique_link_clicks_ctr#aa48a871d5a64cab44a6be0bcd25a441"
-#
-#   - dimension: unique_social_clicks
-#     type: number
-#     sql: ${TABLE}.unique_social_clicks
-#
-#   - dimension: unique_social_impressions
-#     type: number
-#     sql: ${TABLE}.unique_social_impressions

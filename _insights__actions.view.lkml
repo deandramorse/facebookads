@@ -1,33 +1,11 @@
 view: ad_action_insights {
-  sql_table_name: looker_facebook.facebook_ads_insights_x__actions ;;
-  #   - dimension: 1d_click
-  #     type: number
-  #     sql: ${TABLE}.1d_click
-  #
-  #   - dimension: 1d_view
-  #     type: number
-  #     sql: ${TABLE}.1d_view
-  #
-  #   - dimension: 28d_click
-  #     type: number
-  #     sql: ${TABLE}.28d_click
-  #
-  #   - dimension: 28d_view
-  #     type: number
-  #     sql: ${TABLE}.28d_view
-  #
-  #   - dimension: 7d_click
-  #     type: number
-  #     sql: ${TABLE}.7d_click
-  #
-  #   - dimension: 7d_view
-  #     type: number
-  #     sql: ${TABLE}.7d_view
+  sql_table_name: looker_facebook.facebook_ads_insights_x__actions;;
 
   dimension: ad_id {
     type: string
     sql: ${TABLE}._rjm_source_key_ad_id ;;
   }
+
 
   dimension: adset_id {
     type: string
@@ -120,13 +98,9 @@ view: ad_action_insights {
     sql: ${TABLE}.value ;;
   }
 
-  dimension: campaign_objective {
-    type: string
-    sql: ${campaigns.objective} ;;
-  }
-
   dimension: campaign_name {
     type: string
     sql: ${campaigns.name} ;;
   }
+
 }

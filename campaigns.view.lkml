@@ -1,5 +1,5 @@
 view: campaigns {
-  sql_table_name: looker_facebook.campaigns_x ;;
+sql_table_name: fb.campaign ;;
 
   dimension: id {
     primary_key: yes
@@ -9,16 +9,8 @@ view: campaigns {
 
   dimension: account_id {
     type: string
+    # hidden: yes
     sql: ${TABLE}.account_id ;;
-  }
-
-  #   - dimension: buying_type
-  #     type: string
-  #     sql: ${TABLE}.buying_type
-
-  dimension: effective_status {
-    type: string
-    sql: ${TABLE}.effective_status ;;
   }
 
   dimension: name {
@@ -26,13 +18,9 @@ view: campaigns {
     sql: ${TABLE}.name ;;
   }
 
-  dimension: objective {
-    type: string
-    sql: ${TABLE}.objective ;;
-  }
-
   measure: count {
     type: count
-    drill_fields: [id, name]
+    drill_fields: [id, name, adsets.count]
   }
+
 }
