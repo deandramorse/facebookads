@@ -27,6 +27,14 @@
       type: field_filter
       explore: ad_insights_by_age_and_gender
       field: ad_insights_by_age_and_gender.gender
+    - name: campaign
+      type: field_filter
+      explore: ad_insights_by_age_and_gender
+      field: campaigns.name
+    - name: date
+      type: field_filter
+      explore: ad_insights_by_age_and_gender
+      field: ad_insights_by_age_and_gender.date_date
 
 
   elements:
@@ -45,6 +53,8 @@
     listen:
       age_group: ad_insights_by_age_and_gender.age
       gender: ad_insights_by_age_and_gender.gender
+      campaign: campaigns.name
+      date: ad_insights_by_age_and_gender.date_date
 
   - name: avg_ctr
     title: Average CTR
@@ -60,6 +70,8 @@
     listen:
       age_group: ad_insights_by_age_and_gender.age
       gender: ad_insights_by_age_and_gender.gender
+      campaign: campaigns.name
+      date: ad_insights_by_age_and_gender.date_date
 
   - name: avg_cpm
     title: Average CPM
@@ -75,6 +87,8 @@
     listen:
       age_group: ad_insights_by_age_and_gender.age
       gender: ad_insights_by_age_and_gender.gender
+      campaign: campaigns.name
+      date: ad_insights_by_age_and_gender.date_date
 
   - name: avg_cpp
     title: Average CPP
@@ -90,6 +104,8 @@
     listen:
       age_group: ad_insights_by_age_and_gender.age
       gender: ad_insights_by_age_and_gender.gender
+      campaign: campaigns.name
+      date: ad_insights_by_age_and_gender.date_date
 
   - name: performance_by_age
     title: Performance by age group
@@ -106,6 +122,8 @@
     listen:
       age_group: ad_insights_by_age_and_gender.age
       gender: ad_insights_by_age_and_gender.gender
+      campaign: campaigns.name
+      date: ad_insights_by_age_and_gender.date_date
     stacking: ''
     colors: ['#FFCC00', '#1E2023', '#3399CC', '#CC3399', '#66CC66', '#999999', '#FF4E00', '#A2ECBA', '#9932CC', '#0000CD']
     show_value_labels: false
@@ -141,6 +159,8 @@
     listen:
       age_group: ad_insights_by_age_and_gender.age
       gender: ad_insights_by_age_and_gender.gender
+      campaign: campaigns.name
+      date: ad_insights_by_age_and_gender.date_date
 
   - name: impressions
     title: Impressions
@@ -156,6 +176,8 @@
     listen:
       age_group: ad_insights_by_age_and_gender.age
       gender: ad_insights_by_age_and_gender.gender
+      campaign: campaigns.name
+      date: ad_insights_by_age_and_gender.date_date
 
   - name: reach_by_age
     title: Reach by age group
@@ -172,6 +194,8 @@
     show_view_names: true
     listen:
       gender: ad_insights_by_age_and_gender.gender
+      campaign: campaigns.name
+      date: ad_insights_by_age_and_gender.date_date
 
 
   - name: impressions_by_age
@@ -186,6 +210,8 @@
     column_limit: 50
     listen:
       gender: ad_insights_by_age_and_gender.gender
+      campaign: campaigns.name
+      date: ad_insights_by_age_and_gender.date_date
     value_labels: legend
     colors: ['#FFCC00', '#1E2023', '#3399CC', '#CC3399', '#66CC66', '#999999', '#FF4E00', '#A2ECBA', '#9932CC', '#0000CD']
     show_view_names: true
@@ -204,6 +230,8 @@
     listen:
       age_group: ad_insights_by_age_and_gender.age
       gender: ad_insights_by_age_and_gender.gender
+      campaign: campaigns.name
+      date: ad_insights_by_age_and_gender.date_date
 
   - name: spend
     title: Spend
@@ -219,6 +247,8 @@
     listen:
       age_group: ad_insights_by_age_and_gender.age
       gender: ad_insights_by_age_and_gender.gender
+      campaign: campaigns.name
+      date: ad_insights_by_age_and_gender.date_date
 
   - name: clicks_by_age
     title: Clicks by age group
@@ -232,6 +262,8 @@
     column_limit: 50
     listen:
       gender: ad_insights_by_age_and_gender.gender
+      campaign: campaigns.name
+      date: ad_insights_by_age_and_gender.date_date
     value_labels: legend
     colors: ['#FFCC00', '#1E2023', '#3399CC', '#CC3399', '#66CC66', '#999999', '#FF4E00', '#A2ECBA', '#9932CC', '#0000CD']
     show_view_names: true
@@ -246,6 +278,8 @@
     sorts: [ad_insights_by_age_and_gender.total_spend desc 0]
     listen:
       gender: ad_insights_by_age_and_gender.gender
+      campaign: campaigns.name
+      date: ad_insights_by_age_and_gender.date_date
     limit: 5000
     column_limit: 50
     value_labels: legend
