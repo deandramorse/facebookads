@@ -9,6 +9,7 @@ include: "*.dashboard"
 explore: country_coordinates {}
 
 explore: ads {
+  hidden:  yes
 
   join: adsets {
     type: left_outer
@@ -30,6 +31,7 @@ explore: ads {
 }
 
 explore: ad_insights {
+  hidden:  yes
   join: ads {
     type: left_outer
     sql_on: ${ad_insights.ad_id} = ${ads.id} ;;
@@ -70,6 +72,7 @@ explore: ad_insights {
 #}
 
 explore: ad_insights_by_age_and_gender {
+  hidden:  yes
   join: ads {
     type: left_outer
     sql_on: ${ad_insights_by_age_and_gender.ad_id} = ${ads.id} ;;
@@ -110,6 +113,7 @@ explore: ad_insights_by_age_and_gender {
 #}
 
 explore: ad_insights_by_country {
+hidden:  yes
   join: ads {
     type: left_outer
     sql_on: ${ad_insights_by_country.ad_id} = ${ads.id} ;;
@@ -156,6 +160,7 @@ explore: ad_insights_by_country {
 #}
 
 explore: ad_insights_by_placement_and_device {
+  hidden:  yes
   join: ads {
     type: left_outer
     sql_on: ${ad_insights_by_placement_and_device.ad_id} = ${ads.id} ;;
@@ -196,6 +201,7 @@ explore: ad_insights_by_placement_and_device {
 #}
 
 explore: adsets {
+  hidden:  yes
   join: campaigns {
     type: left_outer
     sql_on: ${adsets.campaign_id} = ${campaigns.id} ;;
