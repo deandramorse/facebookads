@@ -6,7 +6,9 @@ include: "*.view"
 # include all the dashboards
 include: "*.dashboard"
 
-explore: country_coordinates {}
+explore: country_coordinates {
+  hidden:  yes
+}
 
 explore: ads {
   hidden:  yes
